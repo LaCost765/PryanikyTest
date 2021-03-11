@@ -13,6 +13,13 @@
 		744A86D425FA19A4004E735C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744A86D225FA19A4004E735C /* Main.storyboard */; };
 		744A86D625FA19A4004E735C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 744A86D525FA19A4004E735C /* Assets.xcassets */; };
 		744A86D925FA19A4004E735C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 744A86D725FA19A4004E735C /* LaunchScreen.storyboard */; };
+		744A86E725FA1D31004E735C /* ServerResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86E625FA1D31004E735C /* ServerResponseData.swift */; };
+		744A86EA25FA1D8D004E735C /* ServerDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86E925FA1D8D004E735C /* ServerDataItem.swift */; };
+		744A86ED25FA1E84004E735C /* HzData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86EC25FA1E84004E735C /* HzData.swift */; };
+		744A86F025FA1EA6004E735C /* PictureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86EF25FA1EA6004E735C /* PictureData.swift */; };
+		744A86F325FA1EEB004E735C /* SelectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86F225FA1EEB004E735C /* SelectorData.swift */; };
+		744A86F625FA1F19004E735C /* SelectorItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A86F525FA1F19004E735C /* SelectorItemData.swift */; };
+		74E78B3925FA2CA40015866C /* EnumsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E78B3825FA2CA40015866C /* EnumsExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		744A86D525FA19A4004E735C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		744A86D825FA19A4004E735C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		744A86DA25FA19A4004E735C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		744A86E625FA1D31004E735C /* ServerResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseData.swift; sourceTree = "<group>"; };
+		744A86E925FA1D8D004E735C /* ServerDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDataItem.swift; sourceTree = "<group>"; };
+		744A86EC25FA1E84004E735C /* HzData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HzData.swift; sourceTree = "<group>"; };
+		744A86EF25FA1EA6004E735C /* PictureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureData.swift; sourceTree = "<group>"; };
+		744A86F225FA1EEB004E735C /* SelectorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorData.swift; sourceTree = "<group>"; };
+		744A86F525FA1F19004E735C /* SelectorItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorItemData.swift; sourceTree = "<group>"; };
+		74E78B3825FA2CA40015866C /* EnumsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumsExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,62 @@
 		744A86CB25FA19A4004E735C /* PryanikyTest */ = {
 			isa = PBXGroup;
 			children = (
+				74E78B3725FA2C950015866C /* Extensions */,
+				744A86E425FA1CEB004E735C /* View */,
+				744A86E325FA1CE3004E735C /* ViewModel */,
+				744A86E125FA1CD5004E735C /* Model */,
 				744A86CC25FA19A4004E735C /* AppDelegate.swift */,
 				744A86CE25FA19A4004E735C /* SceneDelegate.swift */,
-				744A86D025FA19A4004E735C /* ViewController.swift */,
 				744A86D225FA19A4004E735C /* Main.storyboard */,
 				744A86D525FA19A4004E735C /* Assets.xcassets */,
 				744A86D725FA19A4004E735C /* LaunchScreen.storyboard */,
 				744A86DA25FA19A4004E735C /* Info.plist */,
 			);
 			path = PryanikyTest;
+			sourceTree = "<group>";
+		};
+		744A86E125FA1CD5004E735C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				744A86E525FA1CFA004E735C /* JSON */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		744A86E325FA1CE3004E735C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		744A86E425FA1CEB004E735C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				744A86D025FA19A4004E735C /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		744A86E525FA1CFA004E735C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				744A86E625FA1D31004E735C /* ServerResponseData.swift */,
+				744A86E925FA1D8D004E735C /* ServerDataItem.swift */,
+				744A86EC25FA1E84004E735C /* HzData.swift */,
+				744A86EF25FA1EA6004E735C /* PictureData.swift */,
+				744A86F225FA1EEB004E735C /* SelectorData.swift */,
+				744A86F525FA1F19004E735C /* SelectorItemData.swift */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		74E78B3725FA2C950015866C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				74E78B3825FA2CA40015866C /* EnumsExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +198,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				744A86F325FA1EEB004E735C /* SelectorData.swift in Sources */,
+				744A86EA25FA1D8D004E735C /* ServerDataItem.swift in Sources */,
+				74E78B3925FA2CA40015866C /* EnumsExtensions.swift in Sources */,
+				744A86F025FA1EA6004E735C /* PictureData.swift in Sources */,
+				744A86E725FA1D31004E735C /* ServerResponseData.swift in Sources */,
 				744A86D125FA19A4004E735C /* ViewController.swift in Sources */,
+				744A86ED25FA1E84004E735C /* HzData.swift in Sources */,
 				744A86CD25FA19A4004E735C /* AppDelegate.swift in Sources */,
 				744A86CF25FA19A4004E735C /* SceneDelegate.swift in Sources */,
+				744A86F625FA1F19004E735C /* SelectorItemData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
