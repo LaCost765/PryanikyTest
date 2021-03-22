@@ -7,29 +7,39 @@
 
 import Foundation
 
-enum ServerDataItemType: String, Codable {
-    case hz, picture, selector
-}
-
 struct ServerResponseData: Codable {
     var data: [ServerDataItem]
     var view: [String]
 }
 
 struct ServerDataItem: Codable {
-    var name: ServerDataItemType
+    var name: String
     var data: ServerData
 }
 
 struct ServerData: Codable {
+    
     var text: String?
     var url: String?
     var selectedId: Int?
     var variants: [Variant]?
-
+    
     enum CodingKeys: String, CodingKey {
         case text, url
         case selectedId, variants
+    }
+}
+
+extension ServerData {
+
+    init(from decoder: Decoder) throws {
+
+        let values = try? decoder.container(keyedBy: CodingKeys.self)
+
+        text = try? values?.decode(String.self, forKey: .text)
+        url = try? values?.decode(String.self, forKey: .url)
+        selectedId = try? values?.decode(Int.self, forKey: .selectedId)
+        variants = try? values?.decode([Variant].self, forKey: .variants)
     }
 }
 

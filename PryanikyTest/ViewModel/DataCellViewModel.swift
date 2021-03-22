@@ -13,7 +13,7 @@ class DataCellViewModel {
     var bag: DisposeBag = DisposeBag()
     
     var uniqueValue: String {
-        return "Data type: \(model.name.rawValue)"
+        return "Data type: \(model.name)"
     }
     
     required init(model: ServerDataItem) {

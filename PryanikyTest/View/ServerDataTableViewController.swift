@@ -12,7 +12,7 @@ class ServerDataTableViewController: UITableViewController {
     @IBOutlet weak var downloadDataButton: UIBarButtonItem!
     
     var views: [String] = []
-    var dataDict: [ServerDataItemType:ServerDataItem] = [:]
+    var dataDict: [String:ServerDataItem] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class ServerDataTableViewController: UITableViewController {
     @IBAction func downloadDataButtonTapped(_ sender: Any) {
         // create session
         let session = URLSession.shared
-        guard let url = URL(string: "https://pryaniky.com/static/json/sample.json") else { return }
+        guard let url = URL(string: "https://chat.pryaniky.com/json/data-default-order-custom-data-in-view.json") else { return }
 
         session.dataTask(with: url) { [weak self] (data, response, error) in
             do {
@@ -37,7 +37,7 @@ class ServerDataTableViewController: UITableViewController {
                     self?.tableView.reloadData()
                 }
             } catch {
-                print(error.localizedDescription)
+                print("Error: \(error.localizedDescription)")
             }
         }.resume()
     }
@@ -61,19 +61,19 @@ class ServerDataTableViewController: UITableViewController {
         switch views[indexPath.row] {
         case "hz":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Hz", for: indexPath) as! HzTableViewCell
-            guard let model = dataDict[.hz] else { return cell }
+            guard let model = dataDict["hz"] else { return cell }
             cell.viewModel = HzCellViewModel(model: model)
             return cell
             
         case "picture":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath) as! PictureTableViewCell
-            guard let model = dataDict[.picture] else { return cell }
+            guard let model = dataDict["picture"] else { return cell }
             cell.viewModel = PictureCellViewModel(model: model)
             return cell
             
         case "selector":
             let cell = tableView.dequeueReusableCell(withIdentifier: "Selector", for: indexPath) as! SelectorTableViewCell
-            guard let model = dataDict[.selector] else { return cell }
+            guard let model = dataDict["selector"] else { return cell }
             cell.viewModel = SelectorCellViewModel(model: model)
             return cell
             
@@ -85,19 +85,21 @@ class ServerDataTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let type: ServerDataItemType = ServerDataItemType(rawValue: views[indexPath.row]) else { return }
+        let type = views[indexPath.row]
         
         let cell = tableView.cellForRow(at: indexPath)
         var message = ""
         
         switch type {
         
-        case .hz:
+        case "hz":
             message = (cell as! HzTableViewCell).viewModel?.uniqueValue ?? ""
-        case .picture:
+        case "picture":
             message = (cell as! PictureTableViewCell).viewModel?.uniqueValue ?? ""
-        case .selector:
+        case "selector":
             message = (cell as! SelectorTableViewCell).viewModel?.uniqueValue ?? ""
+        default:
+            message = "Unknown data type"
         }
         
         self.showNotificationAlert(title: "Info", message: message, buttonTitle: "Ok")
